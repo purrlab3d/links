@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>purrlab3D</title>
+<meta name="description" content="Find purrlab3D on Facebook, Instagram and the web.">
+<meta name="theme-color" content="#F0593A">
+<link rel="icon" href="logo.png">
+<style>
+  :root {
+    --orange: #F0593A;
+    --navy: #201B51;
+    --white: #FFFFFF;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: var(--navy);
+    background: var(--orange);
+  }
+  main { width: 100%; max-width: 420px; text-align: center; }
+  .logo { display: block; width: min(300px, 80%); height: auto; margin: 0 auto 8px; }
+  p.sub { margin: 0 0 28px; font-size: 1.05rem; font-weight: 600; }
+
+  .btn {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    padding: 12px 18px 12px 12px;
+    margin-bottom: 14px;
+    border-radius: 18px;
+    background: var(--navy);
+    color: var(--white);
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: left;
+    box-shadow: 0 4px 0 rgba(32, 27, 81, 0.35);
+    transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease, color 0.12s ease;
+  }
+  .btn:hover, .btn:focus-visible {
+    background: var(--white);
+    color: var(--navy);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 rgba(32, 27, 81, 0.35);
+    outline: none;
+  }
+  .btn:active { transform: translateY(2px); box-shadow: 0 2px 0 rgba(32, 27, 81, 0.35); }
+
+  .icon {
+    flex: 0 0 auto;
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: var(--orange);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .icon svg { width: 26px; height: 26px; fill: none; stroke: var(--navy); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .label { flex: 1; }
+  .arrow { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+
+  .btn.soon { opacity: 0.6; pointer-events: none; }
+  .btn small { font-weight: 500; opacity: 0.85; font-size: 0.8rem; display: block; }
+  footer { margin-top: 22px; font-size: 0.85rem; font-weight: 600; }
+</style>
+</head>
+<body>
+<main>
+  <img class="logo" src="logo.png" alt="purrlab3D logo">
+  <p class="sub">Follow us and visit our website</p>
+
+  <a id="facebook" class="btn" href="#">
+    <span class="icon" aria-hidden="true">
+      <!-- generic "community" icon -->
+      <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M16.5 14.2c2.6.2 4.5 2.4 4.5 5.8"/></svg>
+    </span>
+    <span class="label">Facebook</span>
+    <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+  </a>
+
+  <a id="instagram" class="btn" href="#">
+    <span class="icon" aria-hidden="true">
+      <!-- generic camera icon -->
+      <svg viewBox="0 0 24 24"><path d="M4 8h3l1.5-2.5h7L17 8h3v11H4z"/><circle cx="12" cy="13.5" r="3.5"/></svg>
+    </span>
+    <span class="label">Instagram</span>
+    <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+  </a>
+
+  <a id="website" class="btn" href="#">
+    <span class="icon" aria-hidden="true">
+      <!-- globe icon -->
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.6 3.9 5.6 3.9 9s-1.3 6.4-3.9 9c-2.6-2.6-3.9-5.6-3.9-9S9.4 5.6 12 3z"/></svg>
+    </span>
+    <span class="label">Website</span>
+    <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+  </a>
+
+  <footer>© purrlab3D</footer>
+</main>
+
+<script>
+  /* ============================================================
+     EDIT ONLY THIS BLOCK to update your links.
+     Paste each full link between the quotes (starting with https://).
+     Leave "" empty and the button shows "coming soon".
+     ============================================================ */
+  const LINKS = {
+    facebook:  "https://www.facebook.com/sakibul.haque.150795",
+    instagram: "",
+    website:   ""
+  };
+
+  Object.keys(LINKS).forEach(function (key) {
+    var el = document.getElementById(key);
+    var url = LINKS[key];
+    var label = el.querySelector(".label");
+    if (url) {
+      el.href = url;
+      el.target = "_blank";
+      el.rel = "noopener";
+    } else {
+      el.classList.add("soon");
+      el.removeAttribute("href");
+      label.innerHTML = label.textContent + "<small>coming soon</small>";
+    }
+  });
+</script>
+</body>
+</html>
